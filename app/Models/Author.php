@@ -10,4 +10,6 @@ class Author extends Model
     use HasFactory;
 
     protected $table = "autors";
+
+    protected $fillable =["jmeno", "prijmeni"];
 }

@@ -32,6 +32,18 @@ class AuthorController extends Controller
     }
 
     public function pridatAutora(Request $request){
-        dd($request);
+        $jmeno = $request->input("jmeno");
+        $prijmeni = $request->input("příjmení");
+
+        $autor = new Author([
+           "prijmeni" => $prijmeni,
+           "jmeno" => $jmeno
+        ]);
+        //$autor->jmeno = $jmeno;
+        //$autor->prijmeni = $prijmeni;
+        $autor->save();
+
+        return back()->with("msg", "autor plus");
+
     }
 };

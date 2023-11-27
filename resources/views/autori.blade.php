@@ -22,6 +22,9 @@
         </style>
     </head>
 <body>
+    @if (null !== Session::has("msg"))
+        <p style="font-weight:bold">{{Session::get("msg")}}<p>
+    @endif
 <table>
     <tr>
         <td>Jmeno</td>
@@ -43,13 +46,13 @@
             <form action="{{route("pridej-autora")}}" method="POST">
                 @csrf
                 <td>
-                    <input type="text" name="jmeno">
+                    <input type="text" name="jmeno" required>
                 </td>
                 <td>
                     <input type="text" name="příjmení" required>
                 </td>
                 <td>
-                    <input  type="submit" name="Vložit">
+                    <input type="submit" name="Vložit">
                 </td>
             </form>
         </tr>
