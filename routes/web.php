@@ -24,4 +24,6 @@ Route::get('/prehled-knih',function() {
 
 Route::get("/autori", [AuthorController::class,"vratAutory"])->name("autori");
 
+Route::post("/autori-pridat", [AuthorController::class,"pridatAutora"])->name("pridej-autora");
+
 Route::get("/smaz-autora/{id}", [AuthorController::class, "delete"])->name("minusAutor");

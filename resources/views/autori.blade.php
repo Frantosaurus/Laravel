@@ -17,6 +17,7 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                background: gray;
             }
         </style>
     </head>
@@ -38,6 +39,20 @@
         </td>
     </tr>
         @endforeach
+        <tr>
+            <form action="{{route("pridej-autora")}}" method="POST">
+                @csrf
+                <td>
+                    <input type="text" name="jmeno">
+                </td>
+                <td>
+                    <input type="text" name="příjmení" required>
+                </td>
+                <td>
+                    <input  type="submit" name="Vložit">
+                </td>
+            </form>
+        </tr>
 </table>
 </body>
 </html>

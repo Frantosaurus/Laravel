@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
 {
     public function vratAutory(){
-        $autori = DB::table('autors')->get();
+
+        $autori = Author::all();
+        //$autori = DB::table('autors')->get();
         //dd($autori);
 
         return View("autori", ["autors" => $autori]);
     }
 
     public function delete(int $id){
-        DB::table("autors")->where("id", $id)->delete();
+
+        //Author::where("id", $id)->delete();
+
+        $autor=Author::find($id);
+        $autor->delete();
+
+        return back();
+        //DB::table("autors")->where("id", $id)->delete();
+
+
         dd("Autor minus ". $id);
+    }
+
+    public function pridatAutora(Request $request){
+        dd($request);
     }
 };
